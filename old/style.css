@@ -29,12 +29,6 @@ body {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-.navbar.scrolled .logo,
-.navbar.scrolled .nav-links a,
-.navbar.scrolled .menu-toggle {
-    color: #2c3e50;
-}
-
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -47,7 +41,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: #2c3e50;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -64,7 +58,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: white;
+    color: #2c3e50;
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
@@ -96,8 +90,19 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: white;
+    color: #2c3e50;
 }
+
+/* Hero Section
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+} */
 
 .hero {
     height: 100vh;
@@ -169,7 +174,7 @@ body {
 
 /* Project Grid */
 .projects-grid {
-    display: column;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
@@ -177,7 +182,6 @@ body {
 
 .project-card {
     background: white;
-    margin: 2rem;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -195,7 +199,7 @@ body {
 
 /* Hobbies List */
 .hobbies-list {
-    display: column;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;

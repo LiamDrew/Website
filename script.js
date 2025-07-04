@@ -53,3 +53,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Mobile menu toggle functionality
+document.getElementById('menuToggle').addEventListener('click', function () {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', function () {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+    });
+});
