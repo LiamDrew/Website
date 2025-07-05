@@ -76,3 +76,51 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         document.getElementById('navLinks').classList.remove('active');
     });
 });
+
+// GitHub Repository Data Fetching
+async function fetchGitHubRepoData(username, repoName) {
+    try {
+        const response = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
+        if (!response.ok) {
+            throw new Error('Repository not found or API limit exceeded');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching GitHub data:', error);
+        return null;
+    }
+}
+
+// Update GitHub card with real data
+async function updateGitHubCard(username, repoName) {
+    const data = await fetchGitHubRepoData(username, repoName);
+    if (data) {
+        // Update stars
+        const starsElement = document.getElementById('stars');
+        if (starsElement) {
+            starsElement.textContent = data.stargazers_count || 0;
+        }
+        
+        // Update forks
+        const forksElement = document.getElementById('forks');
+        if (forksElement) {
+            forksElement.textContent = data.forks_count || 0;
+        }
+        
+        // Update description
+        const descriptionElement = document.querySelector('.repo-description p');
+        if (descriptionElement && data.description) {
+            descriptionElement.textContent = data.description;
+        }
+        
+        // Update languages (you might want to fetch this separately)
+        // For now, we'll keep the static languages
+    }
+}
+
+// Initialize GitHub card when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Replace 'yourusername' and 'website' with your actual GitHub username and repository name
+    updateGitHubCard('yourusername', 'website');
+});
