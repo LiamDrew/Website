@@ -13,7 +13,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Liam Drew</a>
+            <a href="index.html" class="logo">Liam Drew</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -298,7 +298,8 @@
             <div class="hobbies-list">
                 <div class="hobby-item" onclick="navigateToPage('basketball.html')">
                     <h3>Basketball</h3>
-                    <p>Great team chemistry beats individual talent every time.</p>
+                    <p>Basketball is my favorite sport to play and watch. I love the way the game rewards great team chemistry.
+                        I played shooting guard in high school, played intramural in college, and still play pickup occasionally.</p>
                 </div>
                 <div class="hobby-item" onclick="navigateToPage('wiffleball.html')">
                     <h3>Wiffleball</h3>
@@ -306,12 +307,13 @@
                         for pitching through wiffleball.</p>
                 </div>
                 <div class="hobby-item" onclick="navigateToPage('bmw-auto-repair.html')">
-                    <h3>BMW Auto Repair</h3>
-                    <p>I've owned two 2003 BMWs. The E46 is one of the most legendary generations of BMWs. BMW sold 3.1
-                        million of them between 1999 and 2006.
-                        You can find a decent example on facebook marketplace for a few grand, making them a great
-                        starter car for new enthusiasts.
-                    </p>
+                    <h3>BMW Ownership</h3>
+                    <p>I drive a 2003 330xi 6MT. I've owned it since January 2024 and have mostly maintained it myself.</p>
+                    <p> The 1999-2005 E46 generation is one of the most legendary BMW 3 series generations, during which BMW sold 2.6 millions 3
+                    series cars.
+                    These cars are numerous and surprisingly reliable (at least compared to newer BMWs). You can find a decent example on
+                    Facebook Marketplace for a few grand, making them a great
+                    starter car for new enthusiasts.</p>
                 </div>
             </div>
         </div>
@@ -321,25 +323,13 @@
     <section class="section blog-section" id="blog">
         <div class="section-content">
             <h2>Blog</h2>
-            <p>I enjoy sharing my thoughts and experiences through writing:</p>
+            <p>Coming soon:</p>
             <div class="blog-posts">
                 <article class="blog-post" onclick="navigateToPage('future-web-development.html')">
                     <h3>The Future of Web Development</h3>
                     <div class="date">March 15, 2024</div>
                     <p>Exploring the latest trends and technologies that are shaping the future of web development. From
                         AI integration to progressive web apps, the landscape continues to evolve.</p>
-                </article>
-                <article class="blog-post" onclick="navigateToPage('building-resilient-teams.html')">
-                    <h3>Building Resilient Teams</h3>
-                    <div class="date">February 28, 2024</div>
-                    <p>Lessons learned about creating and maintaining high-performing teams in challenging environments.
-                        Communication, trust, and shared goals are key factors.</p>
-                </article>
-                <article class="blog-post" onclick="navigateToPage('my-journey-into-technology.html')">
-                    <h3>My Journey into Technology</h3>
-                    <div class="date">January 20, 2024</div>
-                    <p>Reflecting on how I got started in technology and the pivotal moments that shaped my career path.
-                        Every challenge was an opportunity to grow.</p>
                 </article>
             </div>
         </div>
@@ -376,12 +366,8 @@
     <script>
         // Navigation functionality
         function navigateToPage(pageName) {
-            // You can replace this with actual navigation logic
-            // For now, it will show an alert with the page name
-            // In a real implementation, you would use: window.location.href = pageName;
-            alert(`Navigating to: ${pageName}`);
-            // Uncomment the line below when you have the actual pages created:
-            // window.location.href = pageName;
+            // Navigate to the specified page
+            window.location.href = pageName;
         }
 
 
