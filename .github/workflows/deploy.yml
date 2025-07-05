@@ -1,0 +1,30 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]  # Change to your main branch name if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: 22
+        script: |
+          cd /var/www/html
+          sudo git pull origin main
+          # Install dependencies and build (uncomment if needed)
+          # sudo npm install
+          # sudo npm run build
+          # sudo cp -r build/* /var/www/html/
+          sudo systemctl reload nginx
+          echo "Deployment completed at $(date)" | sudo tee -a /var/log/deploy.log
