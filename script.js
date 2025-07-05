@@ -1,7 +1,7 @@
 // Navbar scroll effect
 window.addEventListener('scroll', function () {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
@@ -11,15 +11,16 @@ window.addEventListener('scroll', function () {
 // Mobile menu toggle
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
+const navCloseBtn = document.getElementById('navCloseBtn');
 
 menuToggle.addEventListener('click', function () {
-    navLinks.classList.toggle('active');
-    // Change hamburger to X when menu is open
-    if (navLinks.classList.contains('active')) {
-        menuToggle.innerHTML = '✕';
-    } else {
-        menuToggle.innerHTML = '☰';
-    }
+    navLinks.classList.add('active');
+    menuToggle.innerHTML = '☰';
+});
+
+navCloseBtn.addEventListener('click', function () {
+    navLinks.classList.remove('active');
+    menuToggle.innerHTML = '☰';
 });
 
 // Close mobile menu when clicking on a link
@@ -27,7 +28,6 @@ const navLinkItems = document.querySelectorAll('.nav-links a');
 navLinkItems.forEach(link => {
     link.addEventListener('click', function () {
         navLinks.classList.remove('active');
-        menuToggle.innerHTML = '☰';
     });
 });
 
@@ -36,7 +36,6 @@ document.addEventListener('click', function (event) {
     const isClickInsideNav = navLinks.contains(event.target) || menuToggle.contains(event.target);
     if (!isClickInsideNav && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
-        menuToggle.innerHTML = '☰';
     }
 });
 
@@ -51,29 +50,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
-    });
-});
-
-// Mobile menu toggle functionality
-document.getElementById('menuToggle').addEventListener('click', function () {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
     });
 });
 
@@ -123,4 +99,7 @@ async function updateGitHubCard(username, repoName) {
 document.addEventListener('DOMContentLoaded', function() {
     // Replace 'yourusername' and 'website' with your actual GitHub username and repository name
     updateGitHubCard('yourusername', 'website');
+    
+
 });
+
